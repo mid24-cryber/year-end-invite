@@ -8,56 +8,102 @@
 body {
   margin: 0;
   height: 100vh;
-  background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+  background: radial-gradient(circle at top, #1a1a2e, #000);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
 }
 
+/* CARD */
 .card {
-  background: white;
+  background: rgba(255,255,255,0.95);
   padding: 40px;
-  border-radius: 20px;
+  border-radius: 24px;
   text-align: center;
-  width: 360px;
-  box-shadow: 0 20px 40px rgba(0,0,0,.2);
-  animation: float 3s ease-in-out infinite;
+  width: 380px;
+  box-shadow: 0 30px 60px rgba(0,0,0,.4);
+  animation: float 4s ease-in-out infinite;
+  z-index: 10;
 }
 
 h1 {
-  color: #ff4b5c;
+  color: #e63946;
+  margin-bottom: 10px;
 }
 
 h2 {
-  color: #333;
-  margin: 10px 0 20px;
+  color: #1d3557;
+  margin-bottom: 20px;
 }
 
 p {
   font-size: 16px;
+  margin: 6px 0;
 }
 
+/* FLOAT EFFECT */
 @keyframes float {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-12px); }
   100% { transform: translateY(0px); }
+}
+
+/* FIREWORKS */
+.firework {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: transparent;
+  border-radius: 50%;
+  animation: explode 1.2s ease-out infinite;
+}
+
+@keyframes explode {
+  0% {
+    box-shadow:
+      0 0 #ffbe0b,
+      0 0 #fb5607,
+      0 0 #ff006e,
+      0 0 #8338ec,
+      0 0 #3a86ff;
+    opacity: 1;
+  }
+  100% {
+    box-shadow:
+      -80px -80px #ffbe0b,
+      80px -80px #fb5607,
+      -80px 80px #ff006e,
+      80px 80px #8338ec,
+      0 120px #3a86ff;
+    opacity: 0;
+  }
 }
 </style>
 </head>
 
 <body>
-  <div class="card">
-    <p>💌 Thư mời gửi đến</p>
 
-    <!-- 🔴 CHỈ SỬA TÊN Ở DÒNG DƯỚI -->
-    <h2>Nguyễn Hoàng Phúc</h2>
+<!-- FIREWORKS -->
+<div class="firework" style="top:20%; left:30%;"></div>
+<div class="firework" style="top:40%; left:70%; animation-delay:.4s;"></div>
+<div class="firework" style="top:70%; left:50%; animation-delay:.8s;"></div>
 
-    <h1>🎉 Year End Party – Công ty SGC Online 🎉</h1>
-    <p>📅 07/02/2026</p>
-    <p>📍 Tầng 10 – Tòa nhà XYZ – Quận 1</p>
-    <p>⏰ 17:30</p>
-    <p>Rất mong sự có mặt của bạn ❤️</p>
-  </div>
+<!-- INVITATION CARD -->
+<div class="card">
+  <p>💌 Thư mời gửi đến</p>
+
+  <!-- 🔴 SỬA TÊN NGƯỜI NHẬN Ở ĐÂY -->
+  <h2>Nuyễn Hoàngg Phúc</h2>
+
+  <h1>🎉 YEAR END PARTY 2026 🎉</h1>
+  <p>📅 30/12/2026</p>
+  <p>📍 Tầng 10 – Tòa nhà XYZ – Quận 1</p>
+  <p>⏰ 17:30</p>
+
+  <p style="margin-top:15px;">✨ Cùng nhau khép lại năm cũ và chào đón năm mới ✨</p>
+</div>
+
 </body>
 </html>
